@@ -1,0 +1,98 @@
+{
+  "pluginAlias": "z2m-sun-simulator",
+  "pluginType": "accessory",
+  "singular": false,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "accessories": {
+        "type": "array",
+        "title": "Sunrise/Sunset Simulator Accessories",
+        "items": {
+          "type": "object",
+          "properties": {
+            "accessory": {
+              "type": "string",
+              "title": "Accessory",
+              "default": "SunriseSimulator",
+              "options": [
+                "SunriseSimulator"
+              ],
+              "readonly": true
+            },
+            "name": {
+              "type": "string",
+              "title": "Name",
+              "description": "The name of your accessory"
+            },
+            "mqtt": {
+              "title": "Mqtt",
+              "type": "object",
+              "properties": {
+                "address": {
+                  "title": "Server address",
+                  "type": "string",
+                  "placeholder": "192.168.40.20",
+                  "required": true,
+                  "description": "Your MQTT server address"
+                },
+                "port": {
+                  "title": "Server port",
+                  "type": "string",
+                  "placeholder": "1883",
+                  "required": true,
+                  "description": "Your MQTT server port"
+                },
+                "user": {
+                  "title": "User",
+                  "type": "string",
+                  "placeholder": "admin",
+                  "required": false,
+                  "description": "The username to conenct to your MQTT server"
+                },
+                "password": {
+                  "title": "Password",
+                  "type": "string",
+                  "placeholder": "•••••••••••••••••",
+                  "required": false,
+                  "description": "The password to conenct to your MQTT server"
+                },
+                "topic": {
+                  "title": "Base topic",
+                  "type": "string",
+                  "required": false,
+                  "default": "zigbee2mqtt",
+                  "placeholder": "zigbee2mqtt",
+                  "description": "The topic that your light subscribes to"
+                }
+              }
+            },
+            "duration": {
+              "type": "number",
+              "title": "Duration (minutes)",
+              "description": "Duration of the sunrise or sunset simulation",
+              "default": 30,
+              "minimum": 1
+            },
+            "isSunrise": {
+              "type": "boolean",
+              "title": "Is Sunrise",
+              "description": "Set to true if this is a sunrise simulator, or false for a sunset simulator",
+              "default": true
+            }
+          },
+          "required": [
+            "name",
+            "mqttServer",
+            "topic",
+            "duration",
+            "isSunrise"
+          ]
+        }
+      }
+    },
+    "required": [
+      "accessories"
+    ]
+  }
+}

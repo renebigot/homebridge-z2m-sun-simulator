@@ -1,0 +1,50 @@
+{
+  "name": "homebridge-z2m-sun-simulator",
+  "displayName": "z2m-sun-simulator",
+  "version": "0.0.1",
+  "description": "Simulate sunset and/or sunrise with your zigbee2mqtt connected lightbulb (must be dimmable).",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renebigot/homebridge-z2m-sun-simulator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/renebigot/homebridge-z2m-sun-simulator"
+  },
+  "engines": {
+    "node": ">=10.17.0",
+    "homebridge": ">=1.3.0"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src/**.ts --max-warnings=0",
+    "watch": "npm run build && npm link && nodemon",
+    "build": "rimraf ./dist && tsc",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "mqtt",
+    "z2m",
+    "lightbulb",
+    "dimmable",
+    "sunset",
+    "sunrise",
+    "dawn simulator"
+  ],
+  "dependencies": {
+    "mqtt": "^5.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.9",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "homebridge": "^1.6.1",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
